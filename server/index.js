@@ -1,13 +1,19 @@
-import { Express } from "express";
+import express from 'express';
 import bodyParser from "body-parser";
 import mongoose, { Error } from "mongoose";
 import cors from "cors";
+
+import postRoutes from './routes/posts.js';
 
 /* dans tout projet express, il faut initialiser App en l'executant en tant que fonction*/
 /** initialisation de App */
 
 const app = Express();
 
+/**ceci signifie que toutes les routes dans le fichier posts.js, vont commencer par posts parce que nous avons 
+ * mis le prefix "posts à toutes les routes"
+ */
+app.use('/posts', postRoutes);
 
 app.use(bodyParser.json({ limit: "30mb", extended: "true" }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: "true" }));
