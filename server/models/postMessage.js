@@ -14,5 +14,10 @@ const postSchema = mongoose.Schema({
     createdAt: {
         type: Date,
         default: new Date()
-    }
-})
+    },
+});
+/** retourner le schema au model  */
+const postMessage = mongoose.model('postMessage', postSchema);
+
+// exporter le model mongoose du fichier postMessage 
+export default postMessage;
